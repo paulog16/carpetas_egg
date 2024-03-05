@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ejercicio3relaciones">
+  <ClassDiagramComponents>
+    <Class name="Baraja" package="ejercicio3relaciones" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="palo" type="String" visibility="private"/>
+        <Field name="num" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ejercicio3relaciones" package="ejercicio3relaciones" visibility="public" xPosition="324.0" yPosition="176.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Servicios" package="ejercicio3relaciones.servicios" visibility="public" xPosition="628.0" yPosition="10.0">
+      <Fields>
+        <Field name="b1" type="Baraja" visibility="package"/>
+        <Field name="leer" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cargar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="b1" source="ejercicio3relaciones.servicios.Servicios" target="ejercicio3relaciones.Baraja" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

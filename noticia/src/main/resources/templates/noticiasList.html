@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaft.org" xmlns:sec="http://www.thymeleaft.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style.css"/>
+    </head>
+    <body>
+
+
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="/">Noticiero</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Noticias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/noticia/Registrar">Guardar</a></li>
+                                <li><a class="dropdown-item" href="#">Ver noticias</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+        <!--</div>
+        <div class="text-center" th:each="noticia:${noticias}" >
+            <h1 th:text="${noticia.titulo}"></h1>
+            <p th:text="${noticia.cuerpo}"></p>
+        </div>-->
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Tiulo</th>
+                    <th scope="col">Cuerpo</th>
+                    <th scope="col" sec:authorize="hasRole('ADMIN')">Acciones</th>
+                    <th scope="col" sec:authorize="hasRole('ADMIN')">Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody th:each="noticia:${noticias}">
+                <tr >
+                    <th class="text-center" scope="row" ><h1 th:text="${noticia.titulo}"></h1></th>
+                    <td th:text="${noticia.cuerpo}"></td>
+                    <td> <a th:href="@{/noticia/modificar/__${noticia.titulo}__}"  sec:authorize="hasRole('ADMIN')">Modificar</a></td>
+                    <td> <a th:href="@{/noticia/eliminar/__${noticia.titulo}__}"  sec:authorize="hasRole('ADMIN')">Eliminar</a></td>
+
+
+                </tr>
+
+            </tbody>
+        </table> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    </body>
+</html>

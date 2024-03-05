@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaft.org">
+    <head>
+        <title>Registrar Noticia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="/estilos.css"/>   
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="/">Noticiero</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Noticias
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/noticia/Registrar">Guardar</a></li>
+                                <li><a class="dropdown-item" href="/noticia/lista">Ver noticias</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Usuarios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/registrar">Registrar</a></li>
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!--<form action="/noticia/registro" method="Post" style="display: flex; flex-direction: column;">
+            <input type="text" name="titulo" placeholder="Titulo...">
+            <textarea name="cuerpo" id="" cols="30" rows="10" placeholder="cuerpo.."></textarea>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <div th:if="${error != null}"  class="card text-white bg-danger mensajeError text-center">
+            <div class="card-body">
+                <h5>Error</h5>
+                <p class="card-text"th:text="${error}"></p>
+            </div>
+        </div>
+        <div th:if="${exito != null}"  class="card text-white bg-danger mensajeError text-center">
+            <div class="card-body">
+                <h5>Exito!</h5>
+                <p class="card-text"th:text="${exito}"></p>
+            </div>
+        </div>
+    </div>-->
+        <div class="container formu" >
+            <form class="card"  action="/noticia/registro" method="Post" >
+                <a class="login">Cargar Noticias</a>
+                <div class="inputBox">
+                    <input type="text" name="titulo" required="required">
+                    <span class="user">titulo</span>
+                </div>
+
+                <div class="inputBox">
+                    <textarea name="cuerpo" id="" cols="30" rows="10" placeholder="Cuerpo.." ></textarea>
+
+                </div>
+                <select class="form-select" aria-label="Default select example" name="titulo">
+                    <option selected>Seleccionar Autor</option>
+                    <option th:each="periodista:${periodistas}"
+                            th:value="${periodista.id}"
+                            th:text="${periodista.nombre}"/>
+
+                </select>
+
+                <button class="enter">Cargar libro</button>
+
+            </form>
+        </div>  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </body>
+</html>
